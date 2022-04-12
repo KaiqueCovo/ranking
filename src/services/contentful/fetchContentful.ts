@@ -12,14 +12,14 @@ interface ContentfulResponse {
   items: ContentfulItemResponse[];
 }
 
-export async function fetchContentful<T>(contentType = 'points'): Promise<ContentfulItemResponse<T>[]> {
+export async function fetchContentful<T>(contentType = 'users'): Promise<ContentfulItemResponse<T>[]> {
 
   const client = createClient({
     space: process.env.NEXT_PUBLIC_CF_SPACE_ID || '',
     accessToken: process.env.NEXT_PUBLIC_CF_DELIVERY_ACCESS_TOKEN || '',
   });
 
-  const { items } = await client.getEntries<ContentfulResponse>({ content_type: contentType , order:'-fields.points' });
+  const { items } = await client.getEntries<ContentfulResponse>({ content_type: contentType });
 
   return items as ContentfulItemResponse[];
 }

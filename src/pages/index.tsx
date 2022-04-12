@@ -3,7 +3,7 @@ import { RiTrophyFill } from 'react-icons/ri';
 
 import { Avatar } from '@/components';
 import { RankTable } from '@/components/RankTable';
-import { fetchAllPoints } from '@/services/contentful/points';
+import { fetchAllUsers } from '@/services/contentful/user';
 import {
   Box,
   Flex,
@@ -28,13 +28,15 @@ const Ranking: NextPage = (): React.ReactElement => {
 
   useEffect(() => {
     async function teste(): Promise<void> {
-      const allPoints = await fetchAllPoints();
+      const allUsers = await fetchAllUsers();
 
-      const points = allPoints.reduce((acc, elem) => {
-        const { points, user: userFields } = elem.fields;
-        const { user, name, avatar } = userFields.fields;
+      console.log(allUsers);
 
-        const findIndex = acc.findIndex(points => points.student.user === user);
+      const ranking = allUsers.reduce((acc, elem) => {
+        const { points: pointsField, user, name, avatar } = elem.fields;
+        const { points } = pointsField?.fields || {};
+
+        const findIndex = acc.findIndex(rank => rank.student.user === user);
 
         if(findIndex > -1) {
           acc[findIndex].points = acc[findIndex].points + points;
@@ -52,8 +54,8 @@ const Ranking: NextPage = (): React.ReactElement => {
         return acc;
       }, [] as StudentPoint[]);
 
-      console.log('POINTS', points);
-      setRanking(points);
+      console.log('POINTS', ranking);
+      // setRanking(points);
     }
 
     teste();
