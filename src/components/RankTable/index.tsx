@@ -14,7 +14,7 @@ import {
 } from '@chakra-ui/react';
 
 interface Users {
-  points: number;
+  totalPoints: number;
   student: {
     name: string;
     user: string;
@@ -71,7 +71,7 @@ export const RankTable = ({ users }: RankTableProps): React.ReactElement => {
                   </Td>
                 )}
                 <Td fontWeight='bold' px='6'>
-                  {user.points}
+                  {user.totalPoints}
                 </Td>
 
               </Tr>

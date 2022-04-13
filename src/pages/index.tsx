@@ -13,7 +13,7 @@ import {
 import { NextPage } from 'next';
 
 interface StudentPoint {
-  points: number;
+  totalPoints: number;
   student: {
     name: string;
     user: string;
@@ -23,42 +23,32 @@ interface StudentPoint {
 
 
 const Ranking: NextPage = (): React.ReactElement => {
-  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
-  const [ranking, setRanking] = useState<any[]>([]);
+  const [ranking, setRanking] = useState<StudentPoint[]>([]);
 
   useEffect(() => {
-    async function teste(): Promise<void> {
+
+    (async function (): Promise<void> {
       const allUsers = await fetchAllUsers();
 
-      console.log(allUsers);
-
       const ranking = allUsers.reduce((acc, elem) => {
-        const { points: pointsField, user, name, avatar } = elem.fields;
-        const { points } = pointsField?.fields || {};
+        const { points, user, name, avatar } = elem.fields;
 
-        const findIndex = acc.findIndex(rank => rank.student.user === user);
+        const totalPoints = points?.reduce((acc, point) => acc + point.fields.points, 0) || 0;
 
-        if(findIndex > -1) {
-          acc[findIndex].points = acc[findIndex].points + points;
-        } else {
-          acc.push({
-            points,
-            student: {
-              user,
-              name,
-              avatar
-            }
-          });
-        }
+        acc.push({
+          totalPoints,
+          student: {
+            user,
+            name,
+            avatar
+          }
+        });
 
         return acc;
       }, [] as StudentPoint[]);
 
-      console.log('POINTS', ranking);
-      // setRanking(points);
-    }
-
-    teste();
+      setRanking(ranking);
+    })();
   }, []);
 
   return (
