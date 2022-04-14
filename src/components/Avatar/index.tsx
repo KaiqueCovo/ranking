@@ -1,6 +1,14 @@
-import { Avatar as ChakraAvatar, Box, Flex, keyframes } from '@chakra-ui/react';
+import {
+  Avatar as ChakraAvatar,
+  AvatarProps as ChakraAvatarProps,
+  Box,
+  Flex,
+  keyframes,
+} from '@chakra-ui/react';
 
-export const Avatar = (): React.ReactElement => {
+type AvatarProps = ChakraAvatarProps;
+
+export const Avatar = (props: AvatarProps): React.ReactElement => {
   const size = '96px';
   const color = 'teal';
 
@@ -45,12 +53,7 @@ export const Avatar = (): React.ReactElement => {
           animation: `2.25s ${pulseRing} cubic-bezier(0.455, 0.03, 0.515, 0.955) -0.4s infinite`,
         }}
       >
-        <ChakraAvatar
-          src='https://i.pravatar.cc/300'
-          size='full'
-          position='absolute'
-          top={0}
-        />
+        <ChakraAvatar size='full' position='absolute' top={0} {...props} />
       </Box>
     </Flex>
   );

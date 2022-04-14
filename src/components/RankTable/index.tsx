@@ -19,13 +19,12 @@ interface Users {
     name: string;
     user: string;
     avatar: string;
-  }
+  };
 }
 
 interface RankTableProps {
-  users: Users[]
+  users: Users[];
 }
-
 
 export const RankTable = ({ users }: RankTableProps): React.ReactElement => {
   const isWideVersion = useBreakpointValue({
@@ -51,32 +50,33 @@ export const RankTable = ({ users }: RankTableProps): React.ReactElement => {
           </Tr>
         </Thead>
         <Tbody>
-          {
-            users.map(user => (
-              <Tr key={user.student.user}>
+          {users.map((user) => (
+            <Tr key={user.student.user}>
+              <Td>
+                <RiVipCrown2Fill color='colors.blue' />
+              </Td>
+              <Td>
+                <Avatar
+                  size='sm'
+                  name={user.student.avatar}
+                  src={user.student.avatar}
+                />
+              </Td>
+              {isWideVersion && (
                 <Td>
-                  <RiVipCrown2Fill color='colors.blue' />
+                  <Box>
+                    <Text fontWeight='bold'>{user.student.name}</Text>
+                    <Text fontSize='small' color='gray.300'>
+                      {`https://github.com/${user.student.user}`}
+                    </Text>
+                  </Box>
                 </Td>
-                <Td>
-                  <Avatar size='sm' name='Dan Abrahmov' src={user.student.avatar} />
-                </Td>
-                {isWideVersion && (
-                  <Td>
-                    <Box>
-                      <Text fontWeight='bold'>{user.student.name}</Text>
-                      <Text fontSize='small' color='gray.300'>
-                        {`https://github.com/${user.student.user}`}
-                      </Text>
-                    </Box>
-                  </Td>
-                )}
-                <Td fontWeight='bold' px='6'>
-                  {user.totalPoints}
-                </Td>
-
-              </Tr>
-            ))
-          }
+              )}
+              <Td fontWeight='bold' px='6'>
+                {user.totalPoints}
+              </Td>
+            </Tr>
+          ))}
         </Tbody>
       </Table>
     </Box>
