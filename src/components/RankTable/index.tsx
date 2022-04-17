@@ -1,5 +1,6 @@
 import { RiVipCrown2Fill } from 'react-icons/ri';
 
+import { StudentPoint } from '@/interface/studentPoint';
 import {
   Avatar,
   Box,
@@ -9,21 +10,15 @@ import {
   Text,
   Th,
   Thead,
+  Tooltip,
   Tr,
+  UnorderedList,
   useBreakpointValue,
+  ListItem,
 } from '@chakra-ui/react';
 
-interface Users {
-  totalPoints: number;
-  student: {
-    name: string;
-    user: string;
-    avatar: string;
-  };
-}
-
 interface RankTableProps {
-  users: Users[];
+  users: StudentPoint[];
 }
 
 export const RankTable = ({ users }: RankTableProps): React.ReactElement => {
@@ -73,7 +68,24 @@ export const RankTable = ({ users }: RankTableProps): React.ReactElement => {
                 </Td>
               )}
               <Td fontWeight='bold' px='6'>
-                {user.totalPoints}
+                <Tooltip
+                  hasArrow
+                  bg='gray.500'
+                  isDisabled={!user.totalPoints}
+                  label={
+                    <UnorderedList>
+                      {user.points?.map((point) => (
+                        <ListItem
+                          key={`${point.motive}-${point.points}`}
+                        >{`${point.motive} : ${point.points}`}</ListItem>
+                      ))}
+                    </UnorderedList>
+                  }
+                >
+                  <Text as='span' cursor='pointer'>
+                    {user.totalPoints}
+                  </Text>
+                </Tooltip>
               </Td>
             </Tr>
           ))}
