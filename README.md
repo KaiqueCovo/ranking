@@ -5,10 +5,12 @@
 <div align="center">
 
   <!-- Badges -->
-  ![GitHub top language](https://img.shields.io/github/languages/top/kaiquecovo/dashgo?color=D53F8C)
-  ![GitHub last commit](https://img.shields.io/github/last-commit/kaiqueCovo/dashgo?color=%231A202C)
-  ![GitHub repo size](https://img.shields.io/github/repo-size/kaiqueCovo/dashgo?color=D53F8C)
-  ![GitHub made by](https://img.shields.io/badge/made%20by-kaiqueCovo-%231A202C)
+
+![GitHub top language](https://img.shields.io/github/languages/top/kaiquecovo/ranking?color=D53F8C)
+![GitHub last commit](https://img.shields.io/github/last-commit/kaiqueCovo/ranking?color=%231A202C)
+![GitHub repo size](https://img.shields.io/github/repo-size/kaiqueCovo/ranking?color=D53F8C)
+![GitHub made by](https://img.shields.io/badge/made%20by-kaiqueCovo-%231A202C)
+
 </div>
 
 ---
@@ -22,41 +24,59 @@
 
 <br>
 
-## :dart: About ##
+## :dart: About
 
-⚠️ Area under construction... ⚠️
+Project developed for ranked the students that concluded more challenges in my class from Senac Araraquara
 
-## :rocket: Technologies ##
+**Github from Students:**
+
+- [Jéssica]()
+- [Ruan](https://github.com/ruanvsrateira)
+- [Vinicius](https://github.com/viniciusfraiz)
+- [Richard](https://github.com/Richardhmcosta)
+- [Lucas](https://github.com/LucasMachioni)
+- [Paulo](https://github.com/Paulopsrj)
+- [Rodrigo](https://github.com/Retamero-05)
+- [Eduardo](https://github.com/DuCostaVital)
+
+## :rocket: Technologies
 
 This project was developed with the following technologies:
 
 - [Next.js](https://nextjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
+- [Contentful](https://www.contentful.com)
 - [Testing Library](https://testing-library.com/)
 - [Chakra UI](https://chakra-ui.com/)
-- [Apex Charts](https://apexcharts.com/)
 - [React Icons](https://react-icons.github.io/react-icons/)
 - [Commitizen](https://commitizen-tools.github.io/commitizen/)
 - [Commitlint](https://commitlint.js.org/#/)
 - [Husky](https://typicode.github.io/husky/#/)
 
-## :white_check_mark: Requirements ##
+## :white_check_mark: Requirements
 
 - [Git](https://git-scm.com/)
 - [Node](https://nodejs.org/en/)
 - [Yarn](https://yarnpkg.com/lang/en/)
 
-## :checkered_flag: Starting ##
+## :checkered_flag: Starting
 
 ```bash
 # Clone this project
-$ git clone git@github.com:KaiqueCovo/dashgo.git
+$ git clone git@github.com:KaiqueCovo/ranking.git
 
 # Go into the repository
-$ cd dashgo
+$ cd ranking
 
 # Install dependencies
 $ yarn install
+
+# Create .env file through .env.example
+$ cp -r .env.example .env
+
+# Configure the environments
+NEXT_PUBLIC_CF_SPACE_ID=
+NEXT_PUBLIC_CF_DELIVERY_ACCESS_TOKEN=
 
 # Run tests
 $ yarn test
@@ -66,4 +86,5 @@ $ yarn dev
 ```
 
 ---
-Made with ♥  by [Kaique Covo](https://www.linkedin.com/in/kaique-covo-a46331147/) :wave:
+
+Made with ♥ by [Kaique Covo](https://www.linkedin.com/in/kaiquecovo) :wave:
