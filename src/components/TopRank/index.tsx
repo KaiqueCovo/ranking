@@ -2,16 +2,8 @@ import { BsAwardFill } from 'react-icons/bs';
 import { RiTrophyFill } from 'react-icons/ri';
 
 import { Avatar } from '@/components';
+import { StudentPoint } from '@/interface/studentPoint';
 import { Box, Flex, theme, VStack, Text } from '@chakra-ui/react';
-
-interface StudentPoint {
-  totalPoints: number;
-  student: {
-    name: string;
-    user: string;
-    avatar: string;
-  };
-}
 
 interface TopRankProps {
   topUsers: StudentPoint[];

@@ -2,19 +2,11 @@ import { useEffect, useState } from 'react';
 
 import { RankTable } from '@/components/RankTable';
 import { TopRank } from '@/components/TopRank';
+import { StudentPoint } from '@/interface/studentPoint';
 import { fetchAllUsers } from '@/services/contentful/user';
 import { Box, Flex } from '@chakra-ui/react';
 import { NextPage } from 'next';
 import Head from 'next/head';
-
-interface StudentPoint {
-  totalPoints: number;
-  student: {
-    name: string;
-    user: string;
-    avatar: string;
-  };
-}
 
 const Ranking: NextPage = (): React.ReactElement => {
   const [topRank, setTopRanking] = useState<StudentPoint[]>([]);
@@ -30,8 +22,11 @@ const Ranking: NextPage = (): React.ReactElement => {
         const totalPoints =
           points?.reduce((acc, point) => acc + point.fields.points, 0) || 0;
 
+        const pointFields = points?.map((point) => point.fields);
+
         acc.push({
           totalPoints,
+          points: pointFields,
           student: {
             user,
             name,
