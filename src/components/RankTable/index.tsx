@@ -15,6 +15,7 @@ import {
   UnorderedList,
   useBreakpointValue,
   ListItem,
+  Link,
 } from '@chakra-ui/react';
 
 interface RankTableProps {
@@ -60,10 +61,13 @@ export const RankTable = ({ users }: RankTableProps): React.ReactElement => {
               {isWideVersion && (
                 <Td>
                   <Box>
-                    <Text fontWeight='bold'>{user.student.name}</Text>
-                    <Text fontSize='small' color='gray.300'>
-                      {`https://github.com/${user.student.user}`}
-                    </Text>
+                    <Link
+                      as='a'
+                      target='_blank'
+                      href={`https://github.com/${user.student.user}`}
+                    >
+                      <Text fontWeight='bold'>{user.student.name}</Text>
+                    </Link>
                   </Box>
                 </Td>
               )}

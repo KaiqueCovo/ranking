@@ -54,12 +54,12 @@ const Ranking: NextPage = (): React.ReactElement => {
         <title>Ranking - UC10</title>
         <meta
           name='description'
-          content='Ranking de desafios para engajar alunos da UC10'
+          content='Ranking de desafios dos alunos da UC10'
         />
       </Head>
       <Box>
         <Flex direction='column' w='100%' my='6' maxW={1480} mx='auto' px='6'>
-          {topRank.length > 2 && <TopRank topUsers={topRank} />}
+          {topRank.length === 3 && <TopRank topUsers={topRank} />}
 
           <RankTable users={ranking} />
         </Flex>
