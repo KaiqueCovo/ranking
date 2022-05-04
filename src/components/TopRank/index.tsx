@@ -14,7 +14,7 @@ export const TopRank = ({ topUsers }: TopRankProps): React.ReactElement => {
 
   return (
     <Flex justifyContent='center' alignItems='center'>
-      <Image src="https://static.wixstatic.com/media/896c82_fb40984a336d420aa8afb8ee562c5181~mv2.gif" alt=""  />
+      <Image src="https://static.wixstatic.com/media/896c82_fb40984a336d420aa8afb8ee562c5181~mv2.gif" alt="" position="absolute" />
       <VStack w={150}>
 
         <RiTrophyFill size={80} color={theme.colors.yellow['700']} />
