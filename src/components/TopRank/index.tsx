@@ -3,7 +3,7 @@ import { RiTrophyFill } from 'react-icons/ri';
 
 import { Avatar } from '@/components';
 import { StudentPoint } from '@/interface/studentPoint';
-import { Box, Flex, theme, VStack, Text, Link } from '@chakra-ui/react';
+import { Box, Flex, theme, VStack, Text, Link, Image } from '@chakra-ui/react';
 
 interface TopRankProps {
   topUsers: StudentPoint[];
@@ -14,7 +14,9 @@ export const TopRank = ({ topUsers }: TopRankProps): React.ReactElement => {
 
   return (
     <Flex justifyContent='center' alignItems='center'>
+      <Image src="https://static.wixstatic.com/media/896c82_fb40984a336d420aa8afb8ee562c5181~mv2.gif" alt=""  />
       <VStack w={150}>
+
         <RiTrophyFill size={80} color={theme.colors.yellow['700']} />
         <Text
           position='absolute'
@@ -33,11 +35,13 @@ export const TopRank = ({ topUsers }: TopRankProps): React.ReactElement => {
           </Text>
         </Box>
         <Avatar src={third.student.avatar} name={third.student.user} />
+        <Image src="https://static.wixstatic.com/media/896c82_48e80c0280f046a985523f724ab3fdc4~mv2.gif" alt="" position="absolute" top={120} />
         <Link
           as='a'
           target='_blank'
           href={`https://github.com/${third.student.user}`}
         >
+
           <Text fontSize={18} fontWeight='bold'>
             {third.student.name}
           </Text>
@@ -62,6 +66,7 @@ export const TopRank = ({ topUsers }: TopRankProps): React.ReactElement => {
           </Text>
         </Box>
         <Avatar src={first.student.avatar} name={first.student.user} />
+        <Image src="https://static.wixstatic.com/media/896c82_48e80c0280f046a985523f724ab3fdc4~mv2.gif" alt="" position="absolute" top={120} />
         <Link
           as='a'
           target='_blank'
@@ -91,6 +96,7 @@ export const TopRank = ({ topUsers }: TopRankProps): React.ReactElement => {
           </Text>
         </Box>
         <Avatar src={second.student.avatar} name={second.student.user} />
+        <Image src="https://static.wixstatic.com/media/896c82_48e80c0280f046a985523f724ab3fdc4~mv2.gif" alt="" position="absolute" top={120} />
         <Box textAlign='center'>
           <Link
             as='a'

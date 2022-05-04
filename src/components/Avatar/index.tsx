@@ -32,6 +32,7 @@ export const Avatar = (props: AvatarProps): React.ReactElement => {
       w='full'
       height={130}
       overflow='hidden'
+      zIndex={2}
     >
       <Box
         as='div'
